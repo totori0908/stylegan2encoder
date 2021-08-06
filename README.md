@@ -1,8 +1,8 @@
 ## How to use
-`docker build -t stylegan -f Dockerfile .`
-`docker run --rm -it -v $(pwd):/work -w /work stylegan`
-Windowの場合は、$(pwd)の代わりにカレントディレクトリの絶対パスをUNIX形式にしたものを用いる。
-ex) `C:/Users/username/stylegan2encoder`
+`docker build -t stylegan -f Dockerfile .`  
+`docker run --rm -it -v $(pwd):/work -w /work stylegan`  
+Windowの場合は、$(pwd)の代わりにカレントディレクトリの絶対パスをUNIX形式にしたものを用いる。  
+ex) `C:/Users/username/stylegan2encoder`  
 
 `align_images.py` 以外は、GPUが使えないと動かないよ
 
