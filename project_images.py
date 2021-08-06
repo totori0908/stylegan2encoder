@@ -11,8 +11,13 @@ import dataset_tool
 from training import dataset
 from training import misc
 
+dst_files = None
 
 def project_image(proj, src_file, dst_dir, tmp_dir, video=False):
+
+    filename = os.path.join(dst_dir, os.path.basename(src_file)[:-4] + '.npy')
+    if filename in dst_files:
+        return
 
     data_dir = '%s/dataset' % tmp_dir
     if os.path.exists(data_dir):
@@ -107,6 +112,7 @@ def main():
     proj.set_network(Gs)
 
     src_files = sorted([os.path.join(args.src_dir, f) for f in os.listdir(args.src_dir) if f[0] not in '._'])
+    dst_files = sorted([os.path.join(args.dst_dir, f) for f in os.listdir(args.dst_dir) if f[0] not in '._'])
     for src_file in src_files:
         project_image(proj, src_file, args.dst_dir, args.tmp_dir, video=args.video)
         if args.video:
