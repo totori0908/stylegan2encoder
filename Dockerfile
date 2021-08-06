@@ -4,8 +4,13 @@
 # To view a copy of this license, visit
 # https://nvlabs.github.io/stylegan2/license.html
 
-FROM tensorflow/tensorflow:1.15.0-gpu-py3
+# FROM tensorflow/tensorflow:1.15.0-gpu-py3
+FROM tensorflow/tensorflow:1.14.0-gpu-py3
 
 RUN pip install scipy==1.3.3
 RUN pip install requests==2.22.0
 RUN pip install Pillow==6.2.1
+RUN pip install keras==2.2.1
+RUN pip install cmake
+RUN pip install dlib
+RUN pip install tqdm

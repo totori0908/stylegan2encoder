@@ -1,3 +1,11 @@
+## How to use
+`docker build -t stylegan -f Dockerfile .`
+`docker run --rm -it -v $(pwd):/work -w /work stylegan`
+Windowの場合は、$(pwd)の代わりにカレントディレクトリの絶対パスをUNIX形式にしたものを用いる。
+ex) `C:/Users/username/stylegan2encoder`
+
+`align_images.py` 以外は、GPUが使えないと動かないよ
+
 ## StyleGAN2 &mdash; Encoder/Projector for Official TensorFlow Implementation
 ![Python 3.6](https://img.shields.io/badge/python-3.6-green.svg?style=plastic)
 ![TensorFlow 1.10](https://img.shields.io/badge/tensorflow-1.10-green.svg?style=plastic)
