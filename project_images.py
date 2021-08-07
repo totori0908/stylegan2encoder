@@ -111,6 +111,7 @@ def main():
     )
     proj.set_network(Gs)
 
+    global dst_files
     src_files = sorted([os.path.join(args.src_dir, f) for f in os.listdir(args.src_dir) if f[0] not in '._'])
     dst_files = sorted([os.path.join(args.dst_dir, f) for f in os.listdir(args.dst_dir) if f[0] not in '._'])
     for src_file in src_files:
@@ -120,7 +121,8 @@ def main():
                 src_file, args.dst_dir, args.tmp_dir, args.num_steps, args.video_mode,
                 args.video_size, args.video_fps, args.video_codec, args.video_bitrate
             )
-        shutil.rmtree(args.tmp_dir)
+        if os.path.exists(args.tmp_dir):
+            shutil.rmtree(args.tmp_dir)
 
 
 if __name__ == '__main__':
